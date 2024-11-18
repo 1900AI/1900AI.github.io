@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1900</title>
+    <link rel="stylesheet" href="/css/main.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="welcome">你好 👋 我是1900</div>
+            <nav>
+                <a href="/">主页</a>
+                <a href="/categories">文章</a>
+                <a href="/photos">影集</a>
+                <a href="/friends">友人</a>
+                <a href="/about">关于</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article class="post">
+    <div class="post-container">
+        <h1 class="post-title">我的造船记</h1>
+        <div class="post-meta">
+            <span class="post-date">
+                <i class="czs-calendar"></i>
+                2024-11-17
+            </span>
+            
+                <span class="post-categories">
+                    <i class="czs-folder"></i>
+                    <a class="post-category-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                </span>
+            
+            
+                <span class="post-tags">
+                    <i class="czs-tag"></i>
+                    <a class="post-tag-none-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a>
+                </span>
+            
+        </div>
+        <div class="post-content">
+            <p>互联网吸引我的地方有很多：开源、极客精神、知识共享、自由……</p>
+<p>在接触到知识管理的概念后，我一直用 Markdown 记录自己的学习与思考。然而，这些记录始终只是静静地存放在本地，缺少一个输出的途径。而输出不仅是对知识的巩固，更是一个审视与优化笔记的过程。</p>
+<p>在学习的过程中，我也读过无数优质的博客文章，也认识了一些拥有个人博客的人。</p>
+<p>于是，我问自己：为什么不尝试拥有一个个人博客呢？</p>
+<p>就这样，我开始行动了。</p>
+<p>经过一番调研后，我最终选择了 Hexo 作为我的博客搭建工具，从零开始构建自己的知识分享平台</p>
+<hr>
+<h2 id="基础-Hexo-安装"><a href="#基础-Hexo-安装" class="headerlink" title="基础 Hexo 安装"></a>基础 Hexo 安装</h2><p>参考：<a target="_blank" rel="noopener" href="https://tech.yemengstar.com/hexo-tutorial-deploy-githubpages-beginner/">HEXO 系列教程 | 使用 GitHub 部署静态博客 HEXO | 夜梦星尘の折腾日记</a></p>
+<p>按照以下步骤安装 Hexo：</p>
+<ol>
+<li><p><strong>Git 安装</strong><br />如果已安装 Git，可跳过此步骤。</p>
+</li>
+<li><p><strong>Node.js 安装</strong><br />参考 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/liuqiyun/p/8133904.html">Node.js 安装及环境配置之 Windows 篇 - 刘奇云</a>。</p>
+<ul>
+<li>将 Node.js 安装在 C 盘。</li>
+<li>npm 全局模块路径与缓存路径设为：<code>D:\node</code>。</li>
+</ul>
+</li>
+<li><p><strong>Hexo 安装</strong><br />使用以下命令安装 Hexo CLI：</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-cli</span> <span class="string">-g</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>GitHub 配置</strong></p>
+<ul>
+<li><p>新建一个名为 <code>1900.github.io</code> 的仓库。</p>
+</li>
+<li><p>打开 Git Bash，输入以下命令生成 SSH Key：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">ssh-keygen</span> <span class="string">-t</span> <span class="string">rsa</span> <span class="string">-C</span> <span class="string">&quot;你的邮件地址&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>进入 <code>C:\Users\用户名\.ssh</code>，用记事本打开 <code>id_rsa.pub</code>，复制内容。</p>
+</li>
+<li><p>在 GitHub 用户设置中添加 SSH Key，粘贴代码后保存。</p>
+</li>
+<li><p>在 Git Bash 中输入以下命令，确保连接成功：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">ssh</span> <span class="string">-T</span> <span class="string">git@github.com</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>创建博客</strong></p>
+<ul>
+<li><p>新建一个文件夹 <code>Blog</code>，进入文件夹后运行以下命令：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">init</span> <span class="string">myblog</span></span><br><span class="line"><span class="string">cd</span> <span class="string">myblog</span></span><br><span class="line"><span class="string">npm</span> <span class="string">install</span></span><br><span class="line"><span class="string">hexo</span> <span class="string">g</span></span><br><span class="line"><span class="string">hexo</span> <span class="string">s</span></span><br></pre></td></tr></table></figure></li>
+<li><p>浏览器访问 <code>localhost:4000</code>，即可看到 Hexo 的基础界面。</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="将博客上线-GitHub"><a href="#将博客上线-GitHub" class="headerlink" title="将博客上线 GitHub"></a>将博客上线 GitHub</h2><p>需要将博客上线github才能实现通过链接访问的功能。</p>
+<ol>
+<li><p><strong>修改</strong>  <strong>​<code>_config.yml</code>​</strong> <strong>文件</strong><br />打开 <code>myblog</code> 文件夹中的 <code>_config.yml</code>，在 <code>deploy</code> 部分添加以下内容：</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">https://github.com/ZachTZZ/1900.github.io</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>安装部署工具</strong><br />在 <code>myblog</code> 文件夹中运行以下命令安装自动部署工具：</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-deployer-git</span> <span class="string">--save</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>生成并上传博客</strong><br />使用 Git Bash，依次运行以下命令：</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">g</span>   <span class="comment"># 生成静态文件</span></span><br><span class="line"><span class="string">hexo</span> <span class="string">d</span>   <span class="comment"># 上传到 GitHub</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h2 id="设计自己的主题"><a href="#设计自己的主题" class="headerlink" title="设计自己的主题"></a>设计自己的主题</h2><h3 id="布局设计"><a href="#布局设计" class="headerlink" title="布局设计"></a>布局设计</h3><p>在看了许多主题后，我发现它们要么过于简约，缺乏我需要的功能，要么过于复杂，显得冗杂不堪。于是，我决定自己设计并实现一个主题。多亏了 AI 的帮助，尤其是 Cursor 工具的出现，让我能够在短短三天内，从零基础学起，到实现我心中理想的布局。</p>
+<p>这段经历让我意识到，人类可以将更多精力专注于设计和创造力的发挥，而通过与 AI 的协作实现自己的想法。在这个过程中，我不仅逐步熟悉了代码的内容，还逐渐提高了对技术需求的表达能力。</p>
+<hr>
+<h3 id="数学公式支持"><a href="#数学公式支持" class="headerlink" title="数学公式支持"></a>数学公式支持</h3><p>在我的大部分文章中，都会用到 LaTeX 数学公式。然而，Hexo 的默认渲染器并不支持公式渲染，而现有的插件也各有不足。经过查阅资料和实际尝试，我终于实现了一个稳定、高效的公式渲染效果，主要参考了以下两篇文章：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zsyyblog.com/b73ceb85.html">Hexo 多种 Markdown 渲染器对比分析 | 竹山一叶</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.barku.re/2024/04/20/%E5%BD%BB%E5%BA%95%E8%A7%A3%E5%86%B3-Hexo-%E7%9A%84%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93%E9%97%AE%E9%A2%98/">彻底解决 Hexo 的数学公式渲染问题 | Barkure</a></li>
+</ul>
+<hr>
+<h3 id="相册"><a href="#相册" class="headerlink" title="相册"></a>相册</h3><p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/1465963">手把手教你搭建阿里云图床(PicGo+Typora+阿里云OSS)，新手小白一看就会-阿里云开发者社区</a></p>
+<p><a target="_blank" rel="noopener" href="https://nickxu.me/post/aliyun-oss-brushed-1000rmb-fees">阿里云OSS被刷，我交了1000RMB学费 | NX の 博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.alibabacloud.com/help/zh/oss/user-guide/use-cdn-to-accelerate-access-to-oss">使用CDN加速OSS资源访问 - 对象存储 OSS - 阿里云</a></p>
+<p>参考上述内容，我实现了自己的相册的搭建，以后更新相册只需要按照下面的步骤执行。</p>
+<ol>
+<li><p><strong>准备图片文件</strong><br />将图片文件（例如 <code>PTZZ4567.jpg</code>）通过 PicGo 上传到阿里云 OSS，获取对应的 URL。</p>
+</li>
+<li><p><strong>更新 OSS URLs 文件</strong><br />在 <code>source/images/gallery/oss-urls.json</code> 文件中，添加新图片的 URL 映射，例如：</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;PTZZ4278.jpg&quot;:</span> <span class="string">&quot;https://1900-photo.oss-cn-beijing.aliyuncs.com/img/PTZZ4278.jpg&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>添加图片描述</strong><br />在 <code>source/images/gallery/descriptions.json</code> 文件中，为新图片添加描述，例如：</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;PTZZ4278.jpg&quot;:</span> &#123;</span><br><span class="line">      <span class="attr">&quot;description&quot;:</span> <span class="string">&quot;《熊洞街》 \n 可爱的机械巨兽&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>生成图片信息</strong><br />运行脚本 <code>scripts/process-photos.js</code> 来处理新添加的图片：</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">node</span> <span class="string">scripts/process-photos.js</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>重新生成网站</strong><br />执行以下命令，清理旧文件并重新生成静态网站：</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">c</span></span><br><span class="line"><span class="string">hexo</span> <span class="string">g</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h2 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h2><p>我的所有文章都在思源笔记中。思源是一款隐私优先的个人知识管理系统。在体验过 FlowUs（类似 Notion）、飞书等多款笔记软件后，因本地化需求，我最终选择了思源。它不仅功能齐全，例如支持双链，还支持使用 S3 同步功能实现多端数据同步。经过一年的使用，我发现它非常适合我的需求。</p>
+<p>思源笔记支持将内容导出为 Markdown 格式，但导出的文件需要进行一定处理后，才能上传到我的博客。</p>
+<ol>
+<li><p>在项目根目录下使用 Hexo 命令创建新文章：<code>hexo new post &quot;文章标题&quot;</code></p>
+</li>
+<li><p>在文章开头添加必要的 Front-matter：</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章标题</span></span><br><span class="line"><span class="attr">date:</span> <span class="string">YYYY-MM-DD</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">分类名称</span></span><br><span class="line"><span class="attr">tags:</span> [<span class="string">标签1</span>, <span class="string">标签2</span>]</span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>粘贴思源导出的md文件</p>
+</li>
+<li><p>本地预览</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">c</span>   <span class="comment"># 清理缓存</span></span><br><span class="line"><span class="string">hexo</span> <span class="string">s</span>  <span class="comment"># 启动本地服务器预览</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>确认文章没问题后发布文章：</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">c</span>   </span><br><span class="line"><span class="string">hexo</span> <span class="string">g</span>   </span><br><span class="line"><span class="string">hexo</span> <span class="string">d</span>  </span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p>这三天，我初步搭建了一个博客框架。虽然还有许多细节需要完善，比如照片的布局，代码高亮的样式调整，还有大量内容等待填充，但基础结构已基本成型。如果你有任何建议或想法，非常欢迎与我交流！</p>
+
+        </div>
+    </div>
+</article>
+
+
+<nav class="post-nav">
+    
+    
+        <a class="next" href="/2024/11/16/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9A%E6%A6%82%E7%8E%87%E8%AE%BA%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">
+            概率论与数理统计第一章：概率论基本概念
+            <i class="czs-angle-right-l"></i>
+        </a>
+    
+</nav>
+
+
+
+
+    
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+  
+    </main>
+
+    <footer>
+        <p>&copy; 2024 1900</p>
+    </footer>
+</body>
+</html>

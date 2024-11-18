@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1900</title>
+    <link rel="stylesheet" href="/css/main.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="welcome">你好 👋 我是1900</div>
+            <nav>
+                <a href="/">主页</a>
+                <a href="/categories">文章</a>
+                <a href="/photos">影集</a>
+                <a href="/friends">友人</a>
+                <a href="/about">关于</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-container">
+    <h1 class="page-title">人的一生，其实不过是在无数风景片段的组合中奔走穿梭而过的吧</h1>
+    
+    <div class="photo-book">
+        <div class="book-pages">
+            <div class="page left-page">
+                <div class="photo-container">
+                    <!-- 照片和信息会通过 JavaScript 动态插入 -->
+                </div>
+            </div>
+            <div class="page right-page">
+                <div class="photo-container">
+                    <!-- 照片和信息会通过 JavaScript 动态插入 -->
+                </div>
+            </div>
+        </div>
+        <div class="book-controls">
+            <button class="prev-btn">← 上一页</button>
+            <button class="next-btn">下一页 →</button>
+        </div>
+    </div>
+</div>
+
+<script>
+async function loadPhotos() {
+    try {
+        const response = await fetch('/images/gallery/photos.json');
+        const photos = await response.json();
+        return photos;
+    } catch (error) {
+        console.error('Error loading photos:', error);
+        return [];
+    }
+}
+
+let currentIndex = 0;
+let photos = [];
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+function isPortrait(photo) {
+    if (!photo || !photo.width || !photo.height) {
+        return false;
+    }
+    return photo.height / photo.width > 1;
+}
+
+function updatePhotos() {
+    const leftContainer = document.querySelector('.left-page .photo-container');
+    const rightContainer = document.querySelector('.right-page .photo-container');
+
+    // 清空容器
+    leftContainer.innerHTML = '';
+    rightContainer.innerHTML = '';
+
+    if (currentIndex < photos.length) {
+        const leftPhoto = photos[currentIndex];
+        const isLeftPortrait = isPortrait(leftPhoto);
+        
+        leftContainer.className = `photo-container ${isLeftPortrait ? 'portrait-container' : 'landscape-container'}`;
+        if (isLeftPortrait) {
+            leftContainer.innerHTML = `
+                <div class="portrait-photo-wrapper">
+                    <img src="${leftPhoto.path}" alt="照片" class="photo">
+                </div>
+                <div class="photo-info">
+                    <div class="photo-date">${leftPhoto.date}</div>
+                    <div class="photo-desc">${leftPhoto.description.split('\n').join('<br>')}</div>
+                </div>
+            `;
+        } else {
+            leftContainer.innerHTML = `
+                <img src="${leftPhoto.path}" alt="照片" class="photo">
+                <div class="photo-info">
+                    <div class="photo-date">${leftPhoto.date}</div>
+                    <div class="photo-desc">${leftPhoto.description.split('\n').join('<br>')}</div>
+                </div>
+            `;
+        }
+    }
+
+    if (currentIndex + 1 < photos.length) {
+        const rightPhoto = photos[currentIndex + 1];
+        const isRightPortrait = isPortrait(rightPhoto);
+        
+        rightContainer.className = `photo-container ${isRightPortrait ? 'portrait-container' : 'landscape-container'}`;
+        if (isRightPortrait) {
+            rightContainer.innerHTML = `
+                <div class="portrait-photo-wrapper">
+                    <img src="${rightPhoto.path}" alt="照片" class="photo">
+                </div>
+                <div class="photo-info">
+                    <div class="photo-date">${rightPhoto.date}</div>
+                    <div class="photo-desc">${rightPhoto.description.split('\n').join('<br>')}</div>
+                </div>
+            `;
+        } else {
+            rightContainer.innerHTML = `
+                <img src="${rightPhoto.path}" alt="照片" class="photo">
+                <div class="photo-info">
+                    <div class="photo-date">${rightPhoto.date}</div>
+                    <div class="photo-desc">${rightPhoto.description.split('\n').join('<br>')}</div>
+                </div>
+            `;
+        }
+    } else if (currentIndex === photos.length - 1) {
+        rightContainer.innerHTML = `
+            <div class="empty-page">
+                <p>未完待续...</p>
+            </div>
+        `;
+    }
+
+    document.querySelector('.prev-btn').disabled = currentIndex < 2;
+    document.querySelector('.next-btn').disabled = currentIndex + 1 >= photos.length;
+}
+
+async function init() {
+    photos = await loadPhotos();
+    shuffleArray(photos);
+    updatePhotos();
+
+    document.querySelector('.prev-btn').addEventListener('click', () => {
+        if (currentIndex >= 2) {
+            currentIndex -= 2;
+            updatePhotos();
+        }
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', () => {
+        if (currentIndex + 1 < photos.length) {
+            currentIndex += 2;
+            if (currentIndex >= photos.length) {
+                currentIndex = photos.length - 1;
+            }
+            updatePhotos();
+        }
+    });
+}
+
+init();
+</script>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 1900</p>
+    </footer>
+</body>
+</html>

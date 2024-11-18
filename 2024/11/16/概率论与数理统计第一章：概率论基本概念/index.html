@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1900</title>
+    <link rel="stylesheet" href="/css/main.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="welcome">你好 👋 我是1900</div>
+            <nav>
+                <a href="/">主页</a>
+                <a href="/categories">文章</a>
+                <a href="/photos">影集</a>
+                <a href="/friends">友人</a>
+                <a href="/about">关于</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article class="post">
+    <div class="post-container">
+        <h1 class="post-title">概率论与数理统计第一章：概率论基本概念</h1>
+        <div class="post-meta">
+            <span class="post-date">
+                <i class="czs-calendar"></i>
+                2024-11-16
+            </span>
+            
+                <span class="post-categories">
+                    <i class="czs-folder"></i>
+                    <a class="post-category-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                </span>
+            
+            
+                <span class="post-tags">
+                    <i class="czs-tag"></i>
+                    <a class="post-tag-none-link" href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" rel="tag">概率论与数理统计</a>
+                </span>
+            
+        </div>
+        <div class="post-content">
+            <h1 id="基本知识点"><a href="#基本知识点" class="headerlink" title="基本知识点"></a>基本知识点</h1><h2 id="1-1-随机事件及其运算"><a href="#1-1-随机事件及其运算" class="headerlink" title="1.1 随机事件及其运算"></a>1.1 随机事件及其运算</h2><ul>
+<li><p><strong>随机现象（或随机试验）的定义</strong></p>
+<p>一个现象E如果满足以下三个特征，我们就称该现象为一个随机现象（或随机试验）：</p>
+<ol>
+<li><strong>可重复性</strong>：该试验可以在相同条件下重复进行。</li>
+<li><strong>可预测性</strong>：所有可能出现的结果是已知的。（可列的）</li>
+<li><strong>不确定性</strong>：试验结果的出现具有随机性</li>
+</ol>
+<p>对于随机试验E，我们用符号表示其所有可能结果组成的集合，记作 $\Omega &#x3D; {\omega}$，这个集合被称为随机试验E对应的<strong>样本空间</strong>。样本空间中的元素被称为样本点，即样本点就是随机试验的可能结果。</p>
+</li>
+<li><p><strong>随机事件</strong>：随机试验 E 对应的样本空间$\Omega$ 的子集</p>
+</li>
+<li><p>必然事件：样本空间 $\Omega$ 自身；不可能事件：空集$\phi$<br>必然事件概率一定为1，但概率为1不一定是必然事件，不可能事件同理（用几何概型可证明：打到靶心概率为0但并非不可能发生）</p>
+</li>
+<li><p><strong>事件的关系与运算</strong></p>
+<ol>
+<li><strong>事件的包含与相等</strong>：如果事件A的每一个样本点都包含在事件B中，则称事件B包含事件A，记为$A \subseteq B$或$B \supseteq A$。如果$A \subseteq B$且$B \subseteq A$，则称事件A与B相等，记为$A &#x3D; B$。</li>
+<li><strong>和事件</strong>：设A与B为两个随机事件，事件$A \cup B$称为A与B的和事件，有时也记为$A+B$。它表示A或B至少有一个发生的事件。对于n个事件$A_1, A_2, \ldots, A_n$，它们的和事件表示至少有一个发生，记为$\bigcup_{i&#x3D;1}^{n} A_i$。</li>
+<li><strong>积事件</strong>：设A与B为两个随机事件，事件$A \cap B$称为A与B的积事件，有时也记为$AB$​。它表示A和B同时发生的事件。对于n个事件$A_1, A_2, \ldots, A_n$，它们的积事件表示所有事件都发生，记为$\bigcap_{i&#x3D;1}^{n} A_i$。</li>
+<li><strong>差事件</strong>：设A与B为两个随机事件，事件$A - B$称为A与B的差事件。它表示A发生而B不发生的事件。注意$A - B &#x3D; A \cap \overline{B} &#x3D; A \cap (\Omega - B)$</li>
+<li><strong>补事件</strong>：设A为随机事件，事件$\overline{A} &#x3D; \Omega - A$称为A的补事件。它表示A不发生的事件。</li>
+<li><strong>互不相容</strong>：如果$A \cap B &#x3D; \phi$，则称A与B互不相容或互斥。这意味着A和B不能同时发生。</li>
+</ol>
+</li>
+<li><p>事件运算和的一些重要原则：</p>
+<ol>
+<li><p><strong>交换律</strong>：</p>
+<ul>
+<li>$A \cup B &#x3D; B \cup A$，$A \cap B &#x3D; B \cap A$</li>
+</ul>
+</li>
+<li><p><strong>结合律</strong>：</p>
+<ul>
+<li>$A \cup (B \cup C) &#x3D; (A \cup B) \cup C$</li>
+<li>$A \cap (B \cap C) &#x3D; (A \cap B) \cap C$</li>
+</ul>
+</li>
+<li><p><strong>分配律</strong>：对于任意事件 $B$ 和事件集合 ${A_1, A_2, …, A_n}$，有以下等式成立：</p>
+<ul>
+<li>$B \cap (\bigcup\limits_{i&#x3D;1}^{n} A_i) &#x3D; \bigcup\limits_{i&#x3D;1}^{n} (A_i \cap B)$</li>
+<li>$B \cup (\bigcap\limits_{i&#x3D;1}^{n} A_i) &#x3D; \bigcap\limits_{i&#x3D;1}^{n} (A_i \cup B)$</li>
+</ul>
+</li>
+<li><p><strong>De Morgan 法则</strong>：</p>
+<ul>
+<li>$\overline{\bigcup\limits_{i&#x3D;1}^{n} A_i} &#x3D; \bigcap\limits_{i&#x3D;1}^{n} \overline{A_i}$，$\overline{\bigcap\limits_{i&#x3D;1}^{n} A_i} &#x3D; \bigcup\limits_{i&#x3D;1}^{n} \overline{A_i}$</li>
+<li>记忆方法：<img src="/images/%E5%BE%B7%E6%91%A9%E6%A0%B9-20240902200828-ihysmqa.webp" alt="德摩根">​</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="1-2-概率的定义及其基本性质"><a href="#1-2-概率的定义及其基本性质" class="headerlink" title="1.2 概率的定义及其基本性质"></a>1.2 概率的定义及其基本性质</h2><ul>
+<li><p><strong>定义</strong></p>
+<p>设$\Omega$为随机试验E的样本空间。对于任意事件$A \subset \Omega$，如果存在一个实数$P(A)$与之对应，并满足以下条件：</p>
+<ol>
+<li><p><strong>非负性</strong>：$P(A) \geq 0$，即概率值非负；</p>
+</li>
+<li><p><strong>归一性</strong>：$P(\Omega) &#x3D; 1$，即样本空间的概率为1；</p>
+</li>
+<li><p><strong>可列可加性</strong>：设$A_1, A_2, \cdots$是一列两两互不相容的事件，即$A_i \cap A_j &#x3D; \phi$对于所有$i \neq j$，则事件的并集的概率等于这些事件概率的和，即</p>
+<p> $$<br> P(\bigcup_{i&#x3D;1}^{\infty} A_i) &#x3D; \sum_{i&#x3D;1}^{\infty} P(A_i)<br> $$</p>
+</li>
+</ol>
+<p>则称$P(A)$为事件$A$的概率。</p>
+</li>
+<li><p><strong>性质</strong></p>
+<ol>
+<li><p>$P(\phi)&#x3D;0$，证明：$P(\phi)&#x3D;P(\phi)+P(\phi)+\cdots  $</p>
+</li>
+<li><p>可列可加性取$A_{n+1}&#x3D;A_{n+2}&#x3D;\cdots&#x3D;\phi$即可证明<strong>有限可加性</strong>：</p>
+<p> 设$A_1,A_2,\cdots,A_n$是$n$个两两互不相容的事件，则有$P(\bigcup_{\mathrm{i&#x3D;1}}^n\mathrm{A_i})&#x3D;\sum_{\mathrm{i&#x3D;1}}^nP(\mathrm{A_i})$</p>
+</li>
+<li><p>如果$A\subset B$，则$P(A)\leq P(B)$，证明：$P(\mathrm{B})&#x3D;P(A)+P(B\overline{A})&gt;P(A)$，但若$A$严格包含于$B$却不能证明$P(A)&lt; P(B)$</p>
+</li>
+<li><p>$P(A)+P(\overline{A})&#x3D;1$​</p>
+</li>
+<li><p><strong>减法公式</strong>：$P(A-B)&#x3D;P(A\overline{B})&#x3D;P(A)-P(AB) 。$</p>
+</li>
+<li><p><strong>加法公式：</strong><br> ​$P(A\cup B)&#x3D;P(A)+P(B)-P(AB)$，<br> ​$P(A\cup B\cup C)&#x3D;P(A)+P(B)+P(C)-P(AB)-P(AC)-P(BC)+P(ABC)$</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="1-3-等可能概型"><a href="#1-3-等可能概型" class="headerlink" title="1.3 等可能概型"></a>1.3 等可能概型</h2><h4 id="1-3-1-古典概型"><a href="#1-3-1-古典概型" class="headerlink" title="1.3.1 古典概型"></a>1.3.1 古典概型</h4><ul>
+<li><p><strong>排列组合</strong></p>
+<ol>
+<li>排列：从给定的n个元素中取出r个元素，按照一定的顺序进行排列。计算公式为$A_n^r &#x3D; \frac{n!}{(n-r)!}$</li>
+<li>组合：从给定的n个元素中取出r个元素，不考虑元素的顺序。计算公式为：$C_n^r &#x3D; \frac{n!}{r!(n-r)!}&#x3D; \frac{n \times (n-1) \times … \times (n-r+1)}{r!}$</li>
+</ol>
+</li>
+<li><p><strong>定义</strong></p>
+<p>当一个随机试验满足一下两个条件时，我们称该试验对应的概率模型为古典概型。</p>
+<ol>
+<li>有限性：样本空间中的样本点总数是有限的。</li>
+<li>等可能性：每个样本点出现的可能性相同。</li>
+</ol>
+</li>
+<li><p>在古典概型中，事件$A$的概率可以用以下公式计算：</p>
+<p>$$<br>P(A) &#x3D; \frac{\text{事件}A\text{中样本点的数量}}{\text{样本点总数}}<br>$$</p>
+</li>
+<li><p><strong>摸球问题</strong></p>
+<p>设有 $N$ 个不同的球，要从中任取 $n$ 个球$(n\leq N):$  </p>
+<ol>
+<li>有放回摸球：每次摸球后，将球放回原位，然后再进行下一次摸球。这种情况下，每次摸球时，都有N个球可供选择，因此样本点总数为$N^n$。</li>
+<li>不放回摸球，但与次序无关：每次摸球后，不将球放回原位，但我们只关心摸出的球的组合，而不关心它们的顺序。这种情况下，样本点总数为从N个球中选择n个球的组合数，样本点总数为$C_N^n$表示</li>
+<li>不放回摸球，且与次序有关：每次摸球后，不将球放回原位，且我们关心摸出的球的顺序。样本点总数为$A_N^n$</li>
+</ol>
+<ul>
+<li><p>例：设袋中有6个白球和4个红球，共10个球。</p>
+<ol>
+<li>有放回摸球，求5个球中恰有3个白球的概率：$P(A) &#x3D; \frac{C_6^3 \cdot 6^3 \cdot 4^2}{10^5} &#x3D; C_5^3 \cdot 0.6^3 \cdot 0.4^2$</li>
+<li>不放回摸球，求5个球中恰有3个白球的概率：$P(B) &#x3D; \frac{C_6^3 \cdot C_4^2}{C_{10}^5}$</li>
+<li>不放回摸球，求5个球中第三个球为白球的概率（先取一个白球）：$P(C) &#x3D; \frac{C_{9}^2 \cdot C_{7}^2}{C_{10}^5 \cdot C_{5}^1} &#x3D; \frac{6}{10}$</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>分房问题</strong></p>
+<ul>
+<li><p>例 ：将 n个人随机分到 N 个房间中去，$(n\leq N)$,每个人分到哪个房间时等可能的，且假设每个房间可容纳的人数没有限制，求</p>
+<ol>
+<li>某指定的一个房间(比如第一个房间)恰有$m$个人的概率。$(m\leq n)$：$P(A)&#x3D;\frac{C_n^m\cdot(N-1)^{n-m}}{N^n}$</li>
+<li>每两个人都不在同一个房间的概率：$P(B)&#x3D;\frac{A_N^n}{N^n}$</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>抽签问题</strong></p>
+<p>例：设有 15 个人要去看电影，只有 7 张电影票，于是进行抽签决定谁去 看电影。求第 5 个人抽到电影票的概率：$P(A)&#x3D;\frac{7\cdot14!}{15!}&#x3D;\frac{7}{15}$  </p>
+<p>抽签与顺序无关</p>
+</li>
+<li><p><strong>分组法</strong></p>
+<p>将$n$个不同的球分成$k$个不同的组,使得每组各有$n_1,n_2,\cdotp\cdotp\cdotp,n_k$个球，总的取法为：</p>
+<p>$$<br>C_n^{n_1}C_{n-n_1}^{n_2}\cdots C_{n-n_1-n_2-\cdots-n_{k-2}}^{n_{k-1}}&#x3D;\frac{n!}{n_1!n_2!\cdots n_k!}<br>$$</p>
+</li>
+</ul>
+<h4 id="1-3-2-几何概型"><a href="#1-3-2-几何概型" class="headerlink" title="1.3.2 几何概型"></a>1.3.2 几何概型</h4><ul>
+<li><p>定义</p>
+<p>几何概型具有以下两个特征：</p>
+<ol>
+<li><strong>无限性</strong>：实验中所有可能出现的基本事件（结果）有无限多个。</li>
+<li><strong>等可能性</strong>：每个基本事件出现的可能性相等。</li>
+</ol>
+</li>
+<li><p>计算</p>
+<p>在几何概型中，如果我们有一个可以度量的区域G，其中包含一个子区域g，那么随机选择一个点落在g中的概率可以定义为：</p>
+<p>$$<br>P &#x3D; \frac{\text{g的测度}}{\text{G的测度}}<br>$$</p>
+<p>其中，测度可以是长度、面积或体积，具体取决于问题的性质。</p>
+</li>
+<li><p>会面问题</p>
+<p>​<img src="/images/image-20240904105003-7sagfbz.png" alt="image">​</p>
+</li>
+</ul>
+<h2 id="1-4-条件概率"><a href="#1-4-条件概率" class="headerlink" title="1.4 条件概率"></a>1.4 条件概率</h2><ul>
+<li><p>条件概率定义</p>
+<p>设 A 与 B 为两个事件，且$P(B)&gt;0$。那么在“已知事件$B$ 发生”的条件下，事件$A$的条件概率$P(A\mid B)$定义为$ P(A\mid B)&#x3D;\frac{P(AB)}{P(B)}\text{。}$</p>
+</li>
+<li><p>条件概率性质</p>
+<ol>
+<li>非负性：对任意事件 $A$,有$P(A\mid B)\geq0$</li>
+<li>归一性：$P(\Omega\mid B)&#x3D;1$</li>
+<li>可列可加性：对任意的一列两两互不相容的事件$A_n,n&#x3D;1,2,\cdots$,有$P(\bigcup_{n&#x3D;1}^\infty A_n\mid B)&#x3D;\sum_{n&#x3D;1}^\infty P(A_n\mid B)$</li>
+</ol>
+</li>
+<li><p>乘法公式</p>
+<p>$P(AB)&#x3D;P(A)P(B\mid A)&#x3D;P(B)P(A\mid B)$</p>
+</li>
+<li><p>样本空间的划分（分割、完备事件组）</p>
+<p>设$A_1,A_2,\cdots,A_n$为一组事件，如果$A_iA_j&#x3D;\phi$且$\bigcup_{i&#x3D;1}^nA_i&#x3D;\Omega$则称$A_1,A_2,\cdots,A_n$是$\Omega$的划分（分割、完备事件组）</p>
+</li>
+<li><p>全概率公式（关键在于构造第一阶段事件的划分）</p>
+<p>设$A_1,A_2,\cdots,A_n$为$\Omega$的一组划分，则对任意的事件 B,有$P(B)&#x3D;\sum_{i&#x3D;1}^nP(A_i)P(B\mid A_i)$  </p>
+<p>全概率公式应用范围：在第一阶段所有可能已知且第一阶段的试验结果对第二阶段有影响的时候求第二个阶段结果的概率</p>
+</li>
+<li><p>贝叶斯公式</p>
+<p>设$A_1,A_2,\cdotp\cdotp\cdotp,A_n$ 是$\Omega$ 的一个划分，如果$P(A_k)&gt;0,k&#x3D;1,2,\cdotp\cdotp\cdotp,n$ ,则对任意事件 B,只要$P(B)&gt;0$,就有</p>
+<p>$$<br>P(A_k\mid B)&#x3D;\frac{P(A_kB)}{P(B)}&#x3D;\frac{P(A_k)P(B\mid A_k)}{\sum_{i&#x3D;1}^nP(A_i)P(B\mid A_i)}<br>$$</p>
+<p>$P(A_i)$称为先验概率，条件概率$P(A_i\mid B)$称为后验概率</p>
+</li>
+</ul>
+<h2 id="1-5-独立性与贝努利试验"><a href="#1-5-独立性与贝努利试验" class="headerlink" title="1.5 独立性与贝努利试验"></a>1.5 独立性与贝努利试验</h2><h3 id="1-5-1-独立性"><a href="#1-5-1-独立性" class="headerlink" title="1.5.1 独立性"></a>1.5.1 独立性</h3><ul>
+<li><p>相互独立定义</p>
+<p>设 A 与 B 为两个事件，如果等式成立则称事件 $A$ 与 $B$ 相互独立：</p>
+<p>$$<br>P(AB)&#x3D;P(A)P(B),<br>$$</p>
+</li>
+<li><p>相互独立性质</p>
+<ol>
+<li>若$P(A),P(B)&gt;0$且 $A$ 与 $B$ 相互独立，则$AB \neq \phi$，即独立必相交，互斥则必不独立</li>
+<li>若事件 A 与 A 独立，则$P(A)&#x3D;0$ 或 $1 $</li>
+<li>在$(A,B),(\bar{A},B),(A,\bar{B}),(\bar{A},\bar{B})$这四对事件中,如果有一对独立,则另外三对也独立</li>
+</ol>
+</li>
+<li><p>多个事件的相互独立定义</p>
+<p>$A_1,A_2,\cdotp\cdotp\cdotp,A_n$为 $n$ 个事件,从中任取的$k$个事件 $(2\leq k\leq n)$均满足$P(A_{i_1}A_{i_2}\cdots A_{i_k})&#x3D;P(A_{i_1})P(A_{i_2})\cdots P(A_{i_k})$则称$A_1,A_2,\cdotp\cdotp\cdotp,A_n$相互独立</p>
+<p>相互独立的定义包括两两独立但两两独立不能推出相互独立</p>
+</li>
+</ul>
+<h3 id="1-5-2-伯努利试验"><a href="#1-5-2-伯努利试验" class="headerlink" title="1.5.2 伯努利试验"></a>1.5.2 伯努利试验</h3><p>在$n$次独立重复试验中，如果事件$A$在每次试验中发生的概率均为$p$ ,那么 $A$ 在这$n$ 次试验中恰好发生$k$ 次的概率为</p>
+<p>$$<br>C_n^kp^k(1-p)^{n-k},\quad k&#x3D;0,1,2,\cdots n<br>$$</p>
+<h1 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h1><ul>
+<li><p><strong>P31：独立性证明</strong></p>
+<ul>
+<li>设 $0 &lt; P(B) &lt; 1$，证明事件 $A$ 和 $B$ 相互独立的充要条件为：</li>
+</ul>
+<p>$$<br>P(A \mid B) + P(\overline{A} \mid \overline{B}) &#x3D; 1<br>$$</p>
+</li>
+<li><p><strong>P34：Polyá 罐子模型</strong></p>
+<ul>
+<li>设罐中有 $a$ 个红球和 $b$ 个黑球，随机取出一个球后放回，并加入 $c$ 个与取出球同色的球，然后进行下一次取球。重复此过程共 $n$ 次，证明第 $n$ 次取球时取出红球的概率为 $\frac{a}{a+b}$。</li>
+<li><strong>要点</strong>：使用归纳法证明概率在每次取球后保持不变。</li>
+</ul>
+</li>
+<li><p>​<img src="/images/image-20241109134443-xyidut8.png" alt="image">​</p>
+</li>
+<li><p><strong>P36：划分事件的概率</strong></p>
+<ul>
+<li>设 $A_1, A_2, \cdots, A_n$ 是样本空间 $\Omega$ 的一个划分，且 $P(A_i) &#x3D; p_i &gt; 0$。求事件 $A_i$ 比 $A_j$ 先发生的概率。</li>
+<li><strong>答案</strong>：$\frac{p_i}{p_i + p_j}$</li>
+</ul>
+</li>
+<li><p><strong>错排问题</strong></p>
+<ul>
+<li><p><strong>全错排数的通项公式</strong></p>
+<ul>
+<li>初值：$D_0&#x3D;1,D_1&#x3D;0,D_2&#x3D;1$</li>
+<li>递推公式：$D_n&#x3D;(n-1)(D_{n-2}+D_{n-1})$</li>
+<li>推导得 $D_n&#x3D;n!\sum_{i&#x3D;0}^n\frac{\left(-1\right)^i}{i!}$</li>
+<li>全部排错的概率为：$\sum_{i&#x3D;0}^n\frac{\left(-1\right)^i}{i!}$</li>
+</ul>
+</li>
+<li><p><strong>部分错排即</strong> <strong>$n$</strong> <strong>个里面</strong> <strong>$k$</strong> <strong>个排对了</strong></p>
+<ul>
+<li>通项公式：$p_n\left(k\right)&#x3D;\frac{n!}{k!}\sum_{i&#x3D;0}^{n-k}\frac{(-1)^i}{i!}$</li>
+<li>部分排错的概率为：$\frac{1}{k!}\sum_{i&#x3D;0}^{n-k}\frac{(-1)^i}{i!}$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>‍</p>
+
+        </div>
+    </div>
+</article>
+
+
+<nav class="post-nav">
+    
+        <a class="prev" href="/2024/11/17/note1/">
+            <i class="czs-angle-left-l"></i>
+            我的造船记
+        </a>
+    
+    
+        <a class="next" href="/2024/11/16/weekly-1/">
+            Weekly1
+            <i class="czs-angle-right-l"></i>
+        </a>
+    
+</nav>
+
+
+
+
+    
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+  
+    </main>
+
+    <footer>
+        <p>&copy; 2024 1900</p>
+    </footer>
+</body>
+</html>
