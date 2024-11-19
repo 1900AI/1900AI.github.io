@@ -218,10 +218,27 @@ nav a {
     padding: 0.5rem 1rem;
     border-radius: 8px;
     transition: all 0.3s ease;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #007bff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
 }
 
 nav a:hover {
-    background: #f5f5f5;
+    color: #007bff;
+}
+
+nav a:hover::after {
+    width: calc(100% - 2rem);
 }
 
 /* 文章分类页面样式 */
@@ -331,6 +348,17 @@ nav a:hover {
     text-align: center;
     color: #666;
     margin-bottom: 30px;
+    font-size: 0.9em;
+}
+
+.post-meta > span {
+    margin: 0 10px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.post-meta i {
+    margin-right: 5px;
 }
 
 .post-content {
@@ -526,7 +554,7 @@ nav a:hover {
     transform: translateX(5px);
 }
 
-/* 个人资料卡片样式 */
+/* 个人资卡片样式 */
 .profile-box {
     position: relative;
     overflow: hidden;
@@ -949,7 +977,7 @@ nav a:hover {
     align-items: center;
     gap: 20px;
 }
-/* 竖构图样式 */
+/* 竖构样式 */
 .portrait-container {
     flex-direction: row;
     align-items: flex-start;
@@ -1167,113 +1195,124 @@ nav a:hover {
 
 /* 代码块样式 */
 pre {
-    background: #f8f9fa;
-    padding: 15px;
-    border-radius: 8px;
-    overflow-x: auto;
+    background: #f5f5f5;
+    padding: 0;
+    border-radius: 12px;
     margin: 20px 0;
     font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', monospace;
     font-size: 0.9em;
     line-height: 1.5;
-}
-
-/* 行号样式 */
-.gutter {
-    padding-right: 15px;
-    border-right: 1px solid #e1e4e8;
-    color: #999;
-    user-select: none;
-}
-
-.code {
-    padding-left: 15px;
+    overflow: hidden;
 }
 
 /* 代码高亮容器 */
 figure.highlight {
     margin: 20px 0;
-    background: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    background: #f5f5f5;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    position: relative;
 }
 
-figure.highlight table {
-    width: 100%;
-    border-spacing: 0;
+/* 代码内容样式 */
+figure.highlight pre {
+    margin: 0;
+    padding: 1em;
+    overflow-x: auto;
 }
 
+figure.highlight .code {
+    padding: 0;
+}
+
+/* 代码行样式 */
 figure.highlight .line {
     line-height: 1.5;
+    min-height: 1.5em;
+    white-space: pre;
+    color: #333;
 }
 
-/* 行号列宽度固定 */
-figure.highlight .gutter pre {
-    min-width: 30px;
-    text-align: right;
-    background: transparent;
-    padding: 15px 10px;
-    margin: 0;
-}
-
-/* 代码列样式 */
-figure.highlight .code pre {
-    padding: 15px;
-    margin: 0;
-    background: transparent;
-}
-
-/* 代码块标题 */
-figure.highlight figcaption {
-    padding: 10px 15px;
-    color: #666;
-    font-size: 0.9em;
-    border-bottom: 1px solid #eee;
-}
-
-/* 行内代码样式 */
-code {
-    background: #f1f1f1;
-    padding: 2px 5px;
-    border-radius: 3px;
-    font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', monospace;
-    font-size: 0.9em;
-    color: #e83e8c;
-}
-
-/* 代码语言标签 */
-.highlight::before {
-    content: attr(class);
+/* 复制按钮样式 */
+.copy-btn {
     position: absolute;
-    top: 0;
-    right: 0;
-    color: #999;
+    top: 8px;
+    right: 8px;
+    padding: 4px 8px;
+    background: #e0e0e0;
+    border: none;
+    border-radius: 6px;
+    color: #333;
     font-size: 0.8em;
-    padding: 5px 10px;
-    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
 }
 
-/* 代码块内的滚动条样式 */
-.highlight pre::-webkit-scrollbar {
+.copy-btn:hover {
+    background: #d0d0d0;
+}
+
+figure.highlight:hover .copy-btn {
+    opacity: 1;
+}
+
+/* 复制成功提示 */
+.copy-btn.copied {
+    background: #98c379;
+    color: #fff;
+}
+
+/* 滚动条样式 */
+figure.highlight::-webkit-scrollbar {
     height: 8px;
 }
 
-.highlight pre::-webkit-scrollbar-thumb {
+figure.highlight::-webkit-scrollbar-thumb {
     background: #ccc;
     border-radius: 4px;
 }
 
-.highlight pre::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-/* 高亮行样式 */
-.highlight .marked {
-    background: rgba(255, 255, 0, 0.1);
+figure.highlight::-webkit-scrollbar-track {
+    background: #f5f5f5;
 }
 
 /* 代码块hover效果 */
 figure.highlight:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* 行内代码样式 */
+code {
+    background: #f5f5f5;
+    color: #e06c75;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', monospace;
+    font-size: 0.9em;
+}
+
+/* 代码语法高亮颜色 */
+.highlight .keyword { color: #9c27b0; }
+.highlight .function { color: #0277bd; }
+.highlight .string { color: #388e3c; }
+.highlight .number { color: #f57c00; }
+.highlight .comment { color: #757575; font-style: italic; }
+.highlight .operator { color: #00838f; }
+.highlight .property { color: #d32f2f; }
+
+/* 命令行代码高亮 */
+.highlight.bash .command,
+.highlight.shell .command {
+    color: #388e3c;
+}
+
+/* YAML 配置文件高亮 */
+.highlight.yaml .attr {
+    color: #d32f2f;
+}
+.highlight.yaml .string {
+    color: #388e3c;
 }
 
 /* 文章内链接样式 */
@@ -1281,34 +1320,20 @@ figure.highlight:hover {
 .content-card a {
     color: #333;
     text-decoration: none;
-    border-bottom: 1px solid #333;
-    padding-bottom: 2px;
+    padding-bottom: 1px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
     position: relative;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 120, 255, 0.1) 50%);
+    background-size: 100% 200%;
+    background-position: 0 0;
 }
 
 .post-content a:hover,
 .content-card a:hover {
     color: #007bff;
     border-bottom-color: #007bff;
-}
-
-/* 添加悬停时的下划线动画效果 */
-.post-content a::after,
-.content-card a::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background-color: #007bff;
-    transition: width 0.3s ease;
-}
-
-.post-content a:hover::after,
-.content-card a:hover::after {
-    width: 100%;
+    background-position: 0 100%;
 }
 
 /* 外部链接样式 */
@@ -1317,8 +1342,8 @@ figure.highlight:hover {
     padding-right: 1.2em;
 }
 
-.post-content a[target="_blank"]::before,
-.content-card a[target="_blank"]::before {
+.post-content a[target="_blank"]::after,
+.content-card a[target="_blank"]::after {
     content: '↗';
     position: absolute;
     right: 0;
@@ -1328,22 +1353,48 @@ figure.highlight:hover {
     transition: transform 0.3s ease;
 }
 
-.post-content a[target="_blank"]:hover::before,
-.content-card a[target="_blank"]:hover::before {
+.post-content a[target="_blank"]:hover::after,
+.content-card a[target="_blank"]:hover::after {
     transform: translate(2px, -2px);
     opacity: 1;
 }
 
-/* 文章内图片链接样式 */
+/* 图片链接样式 */
 .post-content a:has(img),
 .content-card a:has(img) {
     border-bottom: none;
     padding-bottom: 0;
+    background: none;
 }
 
-.post-content a:has(img)::after,
-.content-card a:has(img)::after {
-    display: none;
+/* 导航链接样式 */
+nav a {
+    color: #333;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #007bff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+nav a:hover::after {
+    width: calc(100% - 2rem);
 }
 
 /* 标签和分类链接样式 */
@@ -1356,27 +1407,107 @@ figure.highlight:hover {
     font-size: 0.9em;
     transition: all 0.3s ease;
     border: none;
-}
-
-.post-categories a {
     background: #f0f0f0;
-    color: #666;
-}
-
-.post-tags a {
-    background: #f8f9fa;
     color: #666;
 }
 
 .post-categories a:hover,
 .post-tags a:hover {
-    background: #333;
+    background: #007bff;
     color: #fff;
     transform: translateY(-2px);
 }
 
-/* 移除标签和分类链接的下划线动画 */
-.post-categories a::after,
-.post-tags a::after {
-    display: none;
+/* 移除标签和分类链接的下划线和背景动画 */
+.post-categories a,
+.post-tags a {
+    background-image: none;
+}
+
+/* 阅读更多链接样式 */
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    background: none;
+    padding-right: 1.5em;
+    position: relative;
+}
+
+.read-more::after {
+    content: '→';
+    position: absolute;
+    right: 0;
+    transition: transform 0.3s ease;
+}
+
+.read-more:hover {
+    color: #0056b3;
+}
+
+.read-more:hover::after {
+    transform: translateX(5px);
+}
+
+/* 评论区样式 */
+.post-comments {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+#vcomments {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* 评论框样式 */
+.v[data-class=v] .vwrap {
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* 评论按钮样式 */
+.v[data-class=v] .vsubmit {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.v[data-class=v] .vsubmit:hover {
+    background-color: #0056b3;
+}
+
+/* 评论列表样式 */
+.v[data-class=v] .vlist .vcard {
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* 评论者信息样式 */
+.v[data-class=v] .vlist .vcard .vhead {
+    margin-bottom: 10px;
+}
+
+/* 评论内容样式 */
+.v[data-class=v] .vlist .vcard .vcontent {
+    font-size: 0.95em;
+    line-height: 1.8;
+    margin: 10px 0;
+}
+
+/* 浏览量样式 */
+.post-visitors {
+    color: #666;
+}
+
+.leancloud-visitors-count {
+    font-weight: bold;
+    color: #007bff;
+    margin: 0 3px;
 }

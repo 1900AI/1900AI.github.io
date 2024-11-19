@@ -41,6 +41,12 @@
                     <a class="post-tag-none-link" href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" rel="tag">概率论与数理统计</a>
                 </span>
             
+            <span class="post-visitors">
+                <i class="czs-eye"></i>
+                <span id="/2024/11/16/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9A%E6%A6%82%E7%8E%87%E8%AE%BA%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="leancloud-visitors" data-flag-title="概率论与数理统计第一章：概率论基本概念">
+                    <span class="leancloud-visitors-count">0</span> 次浏览
+                </span>
+            </span>
         </div>
         <div class="post-content">
             <h1 id="基本知识点"><a href="#基本知识点" class="headerlink" title="基本知识点"></a>基本知识点</h1><h2 id="1-1-随机事件及其运算"><a href="#1-1-随机事件及其运算" class="headerlink" title="1.1 随机事件及其运算"></a>1.1 随机事件及其运算</h2><ul>
@@ -286,6 +292,28 @@
 <p>‍</p>
 
         </div>
+        
+        <div class="post-comments">
+            
+  <div id="vcomments"></div>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'mxFoM0LRCzAPEPFi5Zy88hIq-gzGzoHsz',
+      appKey: 'oJfdGhCSk679QLgYkMEb0lu0',
+      placeholder: '有什么想说的嘛...',
+      avatar: 'mm',
+      meta: ["nick","mail","link"],
+      pageSize: '10',
+      visitor: true,
+      highlight: true,
+      recordIP: false,
+      serverURLs: ''
+    })
+  </script>
+ 
+        </div>
     </div>
 </article>
 
@@ -334,5 +362,44 @@
     <footer>
         <p>&copy; 2024 1900</p>
     </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 为每个代码块添加复制按钮
+        document.querySelectorAll('figure.highlight').forEach(block => {
+            const button = document.createElement('button');
+            button.className = 'copy-btn';
+            button.textContent = '复制';
+            block.appendChild(button);
+
+            button.addEventListener('click', () => {
+                // 获取代码内容，保留换行符
+                const codeLines = block.querySelectorAll('.code .line');
+                const code = Array.from(codeLines)
+                    .map(line => line.textContent)
+                    .join('\n');
+                
+                // 复制到剪贴板
+                navigator.clipboard.writeText(code).then(() => {
+                    button.textContent = '已复制!';
+                    button.classList.add('copied');
+                    
+                    // 2秒后恢复原状
+                    setTimeout(() => {
+                        button.textContent = '复制';
+                        button.classList.remove('copied');
+                    }, 2000);
+                }).catch(err => {
+                    console.error('复制失败:', err);
+                    button.textContent = '复制失败';
+                    
+                    setTimeout(() => {
+                        button.textContent = '复制';
+                    }, 2000);
+                });
+            });
+        });
+    });
+    </script>
 </body>
 </html>

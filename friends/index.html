@@ -30,7 +30,7 @@
 <p>但也许，这条小船能够连接过去和现在，我会在这里真诚地表达我的想法，分享我的生活。</p>
 <p>老朋友们，也许我们很久未见，但过去的时光让我们现在的心依然彼此牵连，希望我们不止在心里彼此怀念，也能更新着对方的状态。</p>
 <p>新朋友们，我时常打开着生活的门，因为也许1900走下栈桥，就远离了孤独。</p>
-<p>总之，如果你在我的小船上有任何想法，欢迎评论（评论系统待开发），如果你也有一条小船，欢迎留下你的链接。</p>
+<p>总之，如果你在我的小船上有任何想法，欢迎评论，如果你也有一条小船，欢迎留下你的链接。</p>
 <p>我相信，人与人会有命中注定的相遇，一切好的友谊都将自然而然形成。</p>
 
     </div>
@@ -40,5 +40,44 @@
     <footer>
         <p>&copy; 2024 1900</p>
     </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 为每个代码块添加复制按钮
+        document.querySelectorAll('figure.highlight').forEach(block => {
+            const button = document.createElement('button');
+            button.className = 'copy-btn';
+            button.textContent = '复制';
+            block.appendChild(button);
+
+            button.addEventListener('click', () => {
+                // 获取代码内容，保留换行符
+                const codeLines = block.querySelectorAll('.code .line');
+                const code = Array.from(codeLines)
+                    .map(line => line.textContent)
+                    .join('\n');
+                
+                // 复制到剪贴板
+                navigator.clipboard.writeText(code).then(() => {
+                    button.textContent = '已复制!';
+                    button.classList.add('copied');
+                    
+                    // 2秒后恢复原状
+                    setTimeout(() => {
+                        button.textContent = '复制';
+                        button.classList.remove('copied');
+                    }, 2000);
+                }).catch(err => {
+                    console.error('复制失败:', err);
+                    button.textContent = '复制失败';
+                    
+                    setTimeout(() => {
+                        button.textContent = '复制';
+                    }, 2000);
+                });
+            });
+        });
+    });
+    </script>
 </body>
 </html>

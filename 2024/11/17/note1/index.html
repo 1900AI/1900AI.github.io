@@ -41,6 +41,12 @@
                     <a class="post-tag-none-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a>
                 </span>
             
+            <span class="post-visitors">
+                <i class="czs-eye"></i>
+                <span id="/2024/11/17/note1/" class="leancloud-visitors" data-flag-title="我的造船记">
+                    <span class="leancloud-visitors-count">0</span> 次浏览
+                </span>
+            </span>
         </div>
         <div class="post-content">
             <p>互联网吸引我的地方有很多：开源、极客精神、知识共享、自由……</p>
@@ -62,7 +68,7 @@
 </ul>
 </li>
 <li><p><strong>Hexo 安装</strong><br />使用以下命令安装 Hexo CLI：</p>
- <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-cli</span> <span class="string">-g</span></span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure></li>
 <li><p><strong>GitHub 配置</strong></p>
 <ul>
 <li><p>新建一个名为 <code>1900.github.io</code> 的仓库。</p>
@@ -142,6 +148,28 @@
 <h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p>这三天，我初步搭建了一个博客框架。虽然还有许多细节需要完善，比如照片的布局，代码高亮的样式调整，还有大量内容等待填充，但基础结构已基本成型。如果你有任何建议或想法，非常欢迎与我交流！</p>
 
         </div>
+        
+        <div class="post-comments">
+            
+  <div id="vcomments"></div>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'mxFoM0LRCzAPEPFi5Zy88hIq-gzGzoHsz',
+      appKey: 'oJfdGhCSk679QLgYkMEb0lu0',
+      placeholder: '有什么想说的嘛...',
+      avatar: 'mm',
+      meta: ["nick","mail","link"],
+      pageSize: '10',
+      visitor: true,
+      highlight: true,
+      recordIP: false,
+      serverURLs: ''
+    })
+  </script>
+ 
+        </div>
     </div>
 </article>
 
@@ -185,5 +213,44 @@
     <footer>
         <p>&copy; 2024 1900</p>
     </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 为每个代码块添加复制按钮
+        document.querySelectorAll('figure.highlight').forEach(block => {
+            const button = document.createElement('button');
+            button.className = 'copy-btn';
+            button.textContent = '复制';
+            block.appendChild(button);
+
+            button.addEventListener('click', () => {
+                // 获取代码内容，保留换行符
+                const codeLines = block.querySelectorAll('.code .line');
+                const code = Array.from(codeLines)
+                    .map(line => line.textContent)
+                    .join('\n');
+                
+                // 复制到剪贴板
+                navigator.clipboard.writeText(code).then(() => {
+                    button.textContent = '已复制!';
+                    button.classList.add('copied');
+                    
+                    // 2秒后恢复原状
+                    setTimeout(() => {
+                        button.textContent = '复制';
+                        button.classList.remove('copied');
+                    }, 2000);
+                }).catch(err => {
+                    console.error('复制失败:', err);
+                    button.textContent = '复制失败';
+                    
+                    setTimeout(() => {
+                        button.textContent = '复制';
+                    }, 2000);
+                });
+            });
+        });
+    });
+    </script>
 </body>
 </html>
