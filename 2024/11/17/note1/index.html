@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1900</title>
     <link rel="stylesheet" href="/css/main.css">
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="1900" type="application/atom+xml">
+</head>
 <body>
     <header>
         <div class="header-content">
@@ -16,6 +17,9 @@
                 <a href="/photos">影集</a>
                 <a href="/friends">友人</a>
                 <a href="/about">关于</a>
+                <a href="/atom.xml" target="_blank" title="RSS订阅">
+                    <i class="czs-rss"></i>RSS
+                </a>
             </nav>
         </div>
     </header>
@@ -159,15 +163,34 @@
       appId: 'mxFoM0LRCzAPEPFi5Zy88hIq-gzGzoHsz',
       appKey: 'oJfdGhCSk679QLgYkMEb0lu0',
       placeholder: '有什么想说的嘛...',
-      avatar: 'mm',
-      meta: ["nick","mail","link"],
+      meta: ['nick', 'mail'],
       pageSize: '10',
       visitor: true,
       highlight: true,
       recordIP: false,
-      serverURLs: ''
+      serverURLs: '',
+      anonymous: '匿名用户',
+      avatar: function() {
+        const avatarTypes = ['mp', 'identicon', 'monsterid', 'wavatar', 'retro', 'robohash'];
+        return avatarTypes[Math.floor(Math.random() * avatarTypes.length)];
+      }(),
+      avatarForce: true,
+      enableQQ: false,
+      beforeComment: function(commentData) {
+        if (!commentData.mail) {
+          commentData.mail = 'no-email@example.com';
+        }
+        return commentData;
+      },
+      avatarCDN: 'https://gravatar.cat.net/avatar/'
     })
   </script>
+
+  <div class="avatar-tips" style="margin-bottom: 15px; color: #666; font-size: 0.9em;">
+    <p>请输入一个邮箱再评论。</p>
+    <p>如果您在 Gravatar 注册过邮箱，将显示您的 Gravatar 头像；否则将随机显示一个默认头像。</p>
+    <p>您可以在 <a href="https://gravatar.com" target="_blank">Gravatar</a> 注册并设置自己的头像。</p>
+  </div>
  
         </div>
     </div>

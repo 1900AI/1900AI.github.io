@@ -1511,3 +1511,94 @@ nav a:hover::after {
     color: #007bff;
     margin: 0 3px;
 }
+
+/* 头像选择器样式 */
+.avatar-selector {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.avatar-selector h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 1em;
+}
+
+.avatar-list {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.avatar-option {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.avatar-option:hover {
+    transform: scale(1.1);
+}
+
+.avatar-option.selected {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+/* 评论区提示样式 */
+.avatar-tips {
+    background: #f8f9fa;
+    border-left: 4px solid #007bff;
+    padding: 15px 20px;
+    border-radius: 0 8px 8px 0;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.avatar-tips p {
+    margin: 8px 0;
+    line-height: 1.6;
+    color: #666;
+    font-size: 0.9em;
+    font-family: 'Noto Serif SC', serif;
+}
+
+.avatar-tips a {
+    color: #007bff;
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 1px solid rgba(0, 123, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.avatar-tips a:hover {
+    color: #0056b3;
+    border-bottom-color: #0056b3;
+}
+
+/* 添加图标 */
+.avatar-tips::before {
+    content: "💡";
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
+/* RSS订阅按钮样式 */
+nav a[href*="atom.xml"] {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+nav a[href*="atom.xml"] i {
+    font-size: 1.1em;
+}
+
+nav a[href*="atom.xml"]:hover {
+    color: #fb7d09;
+}
