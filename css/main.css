@@ -1605,47 +1605,83 @@ nav a[href*="atom.xml"]:hover {
     top: 80px;
     margin: 30px 0;
     padding: 20px;
-    background: #f8f9fa;
-    border-radius: 8px;
+    background: #ffffff;
+    border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.toc-wrap:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.toc-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.toc-header i {
+    font-size: 1.2em;
+    color: #666;
 }
 
 .toc-title {
     font-size: 1.2em;
     font-weight: 600;
     color: #333;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
+    font-family: 'Noto Serif SC', serif;
 }
 
 .toc-content {
     max-height: calc(100vh - 200px);
     overflow-y: auto;
+    padding-right: 10px;
 }
 
+/* 目录列表样式 */
 .toc-content ol {
     list-style: none;
     padding-left: 0;
+    margin: 0;
 }
 
 .toc-content ol ol {
-    padding-left: 1.5em;
+    padding-left: 1.2em;
+    margin-top: 5px;
+}
+
+.toc-content li {
+    margin-bottom: 8px;
+    line-height: 1.4;
 }
 
 .toc-content a {
     display: block;
-    padding: 5px 0;
+    padding: 5px 8px;
     color: #666;
     text-decoration: none;
+    border-radius: 4px;
     transition: all 0.3s ease;
     font-size: 0.95em;
-    line-height: 1.4;
+    border: none;
+    background: none;
 }
 
 .toc-content a:hover {
     color: #007bff;
-    padding-left: 5px;
+    background: #f8f9fa;
+    padding-left: 12px;
+}
+
+/* 当前阅读位置高亮 */
+.toc-content .active > a {
+    color: #007bff;
+    background: #f0f7ff;
+    font-weight: 500;
 }
 
 /* 滚动条样式 */
@@ -1654,10 +1690,36 @@ nav a[href*="atom.xml"]:hover {
 }
 
 .toc-content::-webkit-scrollbar-thumb {
-    background: #ccc;
+    background: #ddd;
     border-radius: 2px;
 }
 
 .toc-content::-webkit-scrollbar-track {
-    background: #f8f9fa;
+    background: transparent;
+}
+
+/* 适配深色模式 */
+@media (prefers-color-scheme: dark) {
+    .toc-wrap {
+        background: #2d2d2d;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    
+    .toc-title {
+        color: #e0e0e0;
+    }
+    
+    .toc-content a {
+        color: #b0b0b0;
+    }
+    
+    .toc-content a:hover {
+        color: #4a9eff;
+        background: #363636;
+    }
+    
+    .toc-content .active > a {
+        color: #4a9eff;
+        background: #363636;
+    }
 }
