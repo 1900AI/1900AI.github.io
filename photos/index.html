@@ -71,13 +71,17 @@ function shuffleArray(array) {
 }
 
 function isPortrait(photo) {
-    if (!photo || !photo.width || !photo.height) {
-        return false;
-    }
-    return photo.height / photo.width > 1;
+    // 如果没有宽高信息，通过图片URL加载图片来判断
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = function() {
+            resolve(this.height > this.width);
+        };
+        img.src = photo.path;
+    });
 }
 
-function updatePhotos() {
+async function updatePhotos() {
     const leftContainer = document.querySelector('.left-page .photo-container');
     const rightContainer = document.querySelector('.right-page .photo-container');
 
@@ -87,7 +91,7 @@ function updatePhotos() {
 
     if (currentIndex < photos.length) {
         const leftPhoto = photos[currentIndex];
-        const isLeftPortrait = isPortrait(leftPhoto);
+        const isLeftPortrait = await isPortrait(leftPhoto);
         
         leftContainer.className = `photo-container ${isLeftPortrait ? 'portrait-container' : 'landscape-container'}`;
         if (isLeftPortrait) {
@@ -96,7 +100,6 @@ function updatePhotos() {
                     <img src="${leftPhoto.path}" alt="照片" class="photo">
                 </div>
                 <div class="photo-info">
-                    <div class="photo-date">${leftPhoto.date}</div>
                     <div class="photo-desc">${leftPhoto.description.split('\n').join('<br>')}</div>
                 </div>
             `;
@@ -104,7 +107,6 @@ function updatePhotos() {
             leftContainer.innerHTML = `
                 <img src="${leftPhoto.path}" alt="照片" class="photo">
                 <div class="photo-info">
-                    <div class="photo-date">${leftPhoto.date}</div>
                     <div class="photo-desc">${leftPhoto.description.split('\n').join('<br>')}</div>
                 </div>
             `;
@@ -113,7 +115,7 @@ function updatePhotos() {
 
     if (currentIndex + 1 < photos.length) {
         const rightPhoto = photos[currentIndex + 1];
-        const isRightPortrait = isPortrait(rightPhoto);
+        const isRightPortrait = await isPortrait(rightPhoto);
         
         rightContainer.className = `photo-container ${isRightPortrait ? 'portrait-container' : 'landscape-container'}`;
         if (isRightPortrait) {
@@ -122,7 +124,6 @@ function updatePhotos() {
                     <img src="${rightPhoto.path}" alt="照片" class="photo">
                 </div>
                 <div class="photo-info">
-                    <div class="photo-date">${rightPhoto.date}</div>
                     <div class="photo-desc">${rightPhoto.description.split('\n').join('<br>')}</div>
                 </div>
             `;
@@ -130,7 +131,6 @@ function updatePhotos() {
             rightContainer.innerHTML = `
                 <img src="${rightPhoto.path}" alt="照片" class="photo">
                 <div class="photo-info">
-                    <div class="photo-date">${rightPhoto.date}</div>
                     <div class="photo-desc">${rightPhoto.description.split('\n').join('<br>')}</div>
                 </div>
             `;
@@ -150,22 +150,22 @@ function updatePhotos() {
 async function init() {
     photos = await loadPhotos();
     shuffleArray(photos);
-    updatePhotos();
+    await updatePhotos();
 
-    document.querySelector('.prev-btn').addEventListener('click', () => {
+    document.querySelector('.prev-btn').addEventListener('click', async () => {
         if (currentIndex >= 2) {
             currentIndex -= 2;
-            updatePhotos();
+            await updatePhotos();
         }
     });
 
-    document.querySelector('.next-btn').addEventListener('click', () => {
+    document.querySelector('.next-btn').addEventListener('click', async () => {
         if (currentIndex + 1 < photos.length) {
             currentIndex += 2;
             if (currentIndex >= photos.length) {
                 currentIndex = photos.length - 1;
             }
-            updatePhotos();
+            await updatePhotos();
         }
     });
 }
