@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1900</title>
+    <link rel="stylesheet" href="/css/main.css">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="1900" type="application/atom+xml">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="welcome">你好 👋 我是1900</div>
+            <nav>
+                <a href="/">主页</a>
+                <a href="/categories">文章</a>
+                <a href="/photos">影集</a>
+                <a href="/friends">友人</a>
+                <a href="/about">关于</a>
+                <a href="/atom.xml" target="_blank" title="RSS订阅">
+                    <i class="czs-rss"></i>RSS
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-sections">
+  <div class="motto-row">
+    <h1 class="motto">Start Fresh, Stay Hungry</h1>
+  </div>
+
+  <div class="section-row">
+    <div class="profile-box box">
+      <img src="/images/me.jpg" alt="我的照片">
+      <div class="photographer-info">Photographed by WenZhiyan</div>
+    </div>
+    <a target="_blank" rel="noopener" href="https://www.16personalities.com/ch/intj-%E4%BA%BA%E6%A0%BC" class="mbti-box box">
+    </a>
+    <a href="/about" class="more-box box">
+      <div class="content">
+        🤔 了解更多 👉 👀
+      </div>
+    </a>
+  </div>
+
+  <div class="section-row">
+    <a target="_blank" rel="noopener" href="https://www.dlut.edu.cn/" class="university-box box">
+        <img src="/images/DUT.jpg" alt="大连理工大学">
+        <div class="university-info">
+            <p>本科在读</p>
+            <p>大连理工大学</p>
+        </div>
+    </a>
+    <div class="location-box box">
+      <img src="/images/zuji.jpg" alt="足迹">
+      <div class="location-info">
+        <p>现居：辽宁省大连市</p>
+        <p>故乡：江西</p>
+      </div>
+    </div>
+    <div class="tags-box box">
+      <p>爱生活 🌈</p>
+      <p>爱摄影 📸</p>
+      <p>爱智慧 💡</p>
+    </div>
+  </div>
+
+  <div class="section-row">
+    <div class="latest-article">
+        <div class="latest-header">
+            <span class="latest-label">最新文章</span>
+        </div>
+        
+            <h4>Weekly2</h4>
+            <p>
+                随手拍
+​​</...
+            </p>
+            <hr class="article-divider">
+            <div class="article-buttons">
+                <a href="/2024/12/15/weekly-2/" class="read-full">阅读全文 →</a>
+                <a href="/categories" class="read-more">浏览更多文章 ➔</a>
+            </div>
+        
+    </div>
+  </div>
+</div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 1900</p>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 为每个代码块添加复制按钮
+        document.querySelectorAll('figure.highlight').forEach(block => {
+            const button = document.createElement('button');
+            button.className = 'copy-btn';
+            button.textContent = '复制';
+            block.appendChild(button);
+
+            button.addEventListener('click', () => {
+                // 获取代码内容，保留换行符
+                const codeLines = block.querySelectorAll('.code .line');
+                const code = Array.from(codeLines)
+                    .map(line => line.textContent)
+                    .join('\n');
+                
+                // 复制到剪贴板
+                navigator.clipboard.writeText(code).then(() => {
+                    button.textContent = '已复制!';
+                    button.classList.add('copied');
+                    
+                    // 2秒后恢复原状
+                    setTimeout(() => {
+                        button.textContent = '复制';
+                        button.classList.remove('copied');
+                    }, 2000);
+                }).catch(err => {
+                    console.error('复制失败:', err);
+                    button.textContent = '复制失败';
+                    
+                    setTimeout(() => {
+                        button.textContent = '复制';
+                    }, 2000);
+                });
+            });
+        });
+    });
+    </script>
+</body>
+</html>
