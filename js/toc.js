@@ -1,3 +1,6 @@
+// 在文件开头添加日志
+console.log('TOC script loaded');
+
 document.addEventListener('DOMContentLoaded', function() {
     const tocLinks = document.querySelectorAll('.toc-content a');
     const headings = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3, .post-content h4');

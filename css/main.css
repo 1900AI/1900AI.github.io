@@ -1599,11 +1599,25 @@ nav a[href*="atom.xml"]:hover {
     color: #fb7d09;
 }
 
+/* 文章页面带目录的布局 */
+.post-with-toc {
+    display: flex;
+    max-width: 1200px;
+    margin: 40px auto;
+    gap: 30px;
+    position: relative;
+}
+
+/* 侧边栏目录样式 */
+.sidebar-toc {
+    width: 280px;
+    flex-shrink: 0;
+}
+
 /* 目录样式 */
 .toc-wrap {
     position: sticky;
     top: 80px;
-    margin: 30px 0;
     padding: 20px;
     background: #ffffff;
     border-radius: 12px;
@@ -1698,6 +1712,16 @@ nav a[href*="atom.xml"]:hover {
     background: transparent;
 }
 
+/* 目录中的公式样式 */
+.toc-content .MathJax {
+    display: inline !important;
+    font-size: 0.9em;
+}
+
+.toc-content .has-jax {
+    font-size: 0.95em;
+}
+
 /* 适配深色模式 */
 @media (prefers-color-scheme: dark) {
     .toc-wrap {
@@ -1722,4 +1746,62 @@ nav a[href*="atom.xml"]:hover {
         color: #4a9eff;
         background: #363636;
     }
+}
+
+/* 响应式布局 */
+@media (max-width: 1024px) {
+    .post-with-toc {
+        flex-direction: column;
+    }
+    
+    .sidebar-toc {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .toc-wrap {
+        position: relative;
+        top: 0;
+    }
+}
+
+* 目录展开/折叠按钮样式 */
+.toc-toggle {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    margin-left: 5px;  /* 改为左边距 */
+    background: #f0f0f0;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    color: #666;
+    transition: all 0.3s ease;
+    position: relative;  /* 添加相对定位 */
+    top: -1px;  /* 微调垂直位置 */
+}
+
+.toc-toggle:hover {
+    background: #e0e0e0;
+    color: #333;
+}
+
+/* 确保目录项有足够的空间显示展开按钮 */
+.toc-content li {
+    position: relative;
+}
+
+/* 目录链接样式调整，确保有足够空间放置按钮 */
+.toc-content a {
+    display: inline-block;  /* 改为inline-block以便按钮能跟随文本 */
+    padding: 5px 8px;
+    color: #666;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 0.95em;
+    border: none;
+    background: none;
 }
