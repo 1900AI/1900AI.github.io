@@ -136,48 +136,54 @@ mjx-container[display="true"] + br {
     </header>
 
     <main>
-        <article class="post">
-    <div class="post-container">
-        <h1 class="post-title">概率论与数理统计第四章：随机变量的数字特征</h1>
-        <div class="post-meta">
-            <span class="post-date">
-                <i class="czs-calendar"></i>
-                2024-11-24
-            </span>
-            
-                <span class="post-categories">
-                    <i class="czs-folder"></i>
-                    <a class="post-category-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
-                </span>
-            
-            
-                <span class="post-tags">
-                    <i class="czs-tag"></i>
-                    <a class="post-tag-none-link" href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" rel="tag">概率论与数理统计</a>
-                </span>
-            
-            <span class="post-visitors">
-                <i class="czs-eye"></i>
-                <span id="/2024/11/24/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%95%B0%E5%AD%97%E7%89%B9%E5%BE%81/" class="leancloud-visitors" data-flag-title="概率论与数理统计第四章：随机变量的数字特征">
-                    <span class="leancloud-visitors-count">0</span> 次浏览
-                </span>
-            </span>
-        </div>
-        
-        
-            
-<div id="toc" class="toc-wrap">
-    <div class="toc-title">目录</div>
-    <div class="toc-content">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-text">知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%9B"><span class="toc-text">4.1 随机变量的数学期望</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E5%B7%AE"><span class="toc-text">4.2 方差</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%88%86%E5%B8%83%E7%9A%84%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%9C%9F%E6%9C%9B%E4%B8%8E%E6%96%B9%E5%B7%AE"><span class="toc-text">4.3
+        <div class="post-with-toc">
+    <!-- 左侧目录栏 -->
+    
+    <div class="sidebar-toc">
+        <div class="toc-wrap">
+            <div class="toc-header">
+                <i class="czs-menu-l"></i>
+                <span class="toc-title">目录</span>
+            </div>
+            <div class="toc-content">
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-text">知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%9B"><span class="toc-text">4.1 随机变量的数学期望</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E5%B7%AE"><span class="toc-text">4.2 方差</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%88%86%E5%B8%83%E7%9A%84%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%9C%9F%E6%9C%9B%E4%B8%8E%E6%96%B9%E5%B7%AE"><span class="toc-text">4.3
 常见分布的随机变量的期望与方差</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%92%8C%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0"><span class="toc-text">4.4 协方差和相关系数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E5%92%8C%E5%8D%8F%E6%96%B9%E5%B7%AE%E7%9F%A9%E9%98%B5"><span class="toc-text">4.5 矩和协方差矩阵</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B9%A0%E9%A2%98"><span class="toc-text">习题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%9F%E6%9C%9B"><span class="toc-text">期望</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E5%B7%AE-1"><span class="toc-text">方差</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%92%8C%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0-1"><span class="toc-text">协方差和相关系数</span></a></li></ol></li></ol>
+            </div>
+        </div>
     </div>
-</div>
- 
-        
-        
-        <div class="post-content">
-            <h1 id="知识点">知识点</h1>
+    
+
+    <!-- 文章主体内容 -->
+    <article class="post">
+        <div class="post-container">
+            <h1 class="post-title">概率论与数理统计第四章：随机变量的数字特征</h1>
+            <div class="post-meta">
+                <span class="post-date">
+                    <i class="czs-calendar"></i>
+                    2024-11-24
+                </span>
+                
+                    <span class="post-categories">
+                        <i class="czs-folder"></i>
+                        <a class="post-category-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    </span>
+                
+                
+                    <span class="post-tags">
+                        <i class="czs-tag"></i>
+                        <a class="post-tag-none-link" href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" rel="tag">概率论与数理统计</a>
+                    </span>
+                
+                <span class="post-visitors">
+                    <i class="czs-eye"></i>
+                    <span id="/2024/11/24/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%95%B0%E5%AD%97%E7%89%B9%E5%BE%81/" class="leancloud-visitors" data-flag-title="概率论与数理统计第四章：随机变量的数字特征">
+                        <span class="leancloud-visitors-count">0</span> 次浏览
+                    </span>
+                </span>
+            </div>
+            
+            <div class="post-content">
+                <h1 id="知识点">知识点</h1>
 <h2 id="随机变量的数学期望">4.1 随机变量的数学期望</h2>
 <ul>
 <li><p><strong>离散型随机变量的期望定义</strong></p>
@@ -374,10 +380,10 @@ mjx-container[display="true"] + br {
 </ul>
 <p>‍</p>
 
-        </div>
-        
-        <div class="post-comments">
+            </div>
             
+            <div class="post-comments">
+                
   <div id="vcomments"></div>
   <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
   <script>
@@ -415,9 +421,10 @@ mjx-container[display="true"] + br {
     <p>您可以在 <a href="https://gravatar.com" target="_blank">Gravatar</a> 注册并设置自己的头像。</p>
   </div>
  
+            </div>
         </div>
-    </div>
-</article>
+    </article>
+</div>
 
 
 <nav class="post-nav">
@@ -437,7 +444,6 @@ mjx-container[display="true"] + br {
 
 
 
-
     
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
@@ -452,6 +458,24 @@ mjx-container[display="true"] + br {
         for(i=0; i < all.length; i += 1) {
             all[i].SourceElement().parentNode.className += ' has-jax';
         }
+      });
+      
+      // 添加目录中公式处理的代码
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          if (typeof MathJax !== 'undefined') {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.querySelector('.toc-content')]);
+            
+            // 为展开/折叠按钮添加MathJax处理
+            document.querySelectorAll('.toc-toggle').forEach(function(btn) {
+              btn.addEventListener('click', function() {
+                setTimeout(function() {
+                  MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.querySelector('.toc-content')]);
+                }, 100);
+              });
+            });
+          }
+        }, 1000);
       });
     </script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -476,25 +500,17 @@ mjx-container[display="true"] + br {
 
             button.addEventListener('click', () => {
                 // 获取代码内容，保留换行符
-                const codeLines = block.querySelectorAll('.code .line');
-                const code = Array.from(codeLines)
-                    .map(line => line.textContent)
-                    .join('\n');
+                const code = block.querySelector('code').innerText;
                 
                 // 复制到剪贴板
                 navigator.clipboard.writeText(code).then(() => {
                     button.textContent = '已复制!';
-                    button.classList.add('copied');
-                    
-                    // 2秒后恢复原状
                     setTimeout(() => {
                         button.textContent = '复制';
-                        button.classList.remove('copied');
                     }, 2000);
                 }).catch(err => {
                     console.error('复制失败:', err);
                     button.textContent = '复制失败';
-                    
                     setTimeout(() => {
                         button.textContent = '复制';
                     }, 2000);
@@ -503,5 +519,8 @@ mjx-container[display="true"] + br {
         });
     });
     </script>
+    
+    <!-- 确保在布局文件中引入目录脚本 -->
+    <script src="/js/toc.js"></script>
 </body>
 </html>
