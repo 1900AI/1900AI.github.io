@@ -56,10 +56,28 @@
             <span class="count">38 篇文章</span>
         </a>
     </div>
+
+    <div class="latest-comments-section">
+        <h2><i class="czs-message"></i> 最新评论</h2>
+        <div id="latest-comments-category-container">
+            <p class="loading-comments">正在加载最新评论...</p>
+        </div>
+    </div>
 </div>
 
 <!-- 添加搜索脚本 -->
 <script src="/js/search.js"></script>
+
+
+<script>
+  window.valineConfig = {
+    appId: 'mxFoM0LRCzAPEPFi5Zy88hIq-gzGzoHsz',
+    appKey: 'oJfdGhCSk679QLgYkMEb0lu0',
+    serverURLs: 'https://mxfom0lr.lc-cn-n1-shared.com'  // 添加这一行
+  };
+</script>
+<script src="/js/latest-comments-category.js"></script>
+
     </main>
 
     <footer>

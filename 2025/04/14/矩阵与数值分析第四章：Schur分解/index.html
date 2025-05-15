@@ -208,7 +208,8 @@ Hermite阵：<span class="math inline"><mjx-container class="MathJax" jax="SVG">
             <div class="post-comments">
                 
   <div id="vcomments"></div>
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <!-- 更换为更稳定的 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
   <script>
     new Valine({
       el: '#vcomments',
@@ -220,7 +221,7 @@ Hermite阵：<span class="math inline"><mjx-container class="MathJax" jax="SVG">
       visitor: true,
       highlight: true,
       recordIP: false,
-      serverURLs: '',
+      serverURLs: 'https://mxfom0lr.lc-cn-n1-shared.com',
       anonymous: '匿名用户',
       avatar: function() {
         const avatarTypes = ['mp', 'identicon', 'monsterid', 'wavatar', 'retro', 'robohash'];
@@ -243,7 +244,7 @@ Hermite阵：<span class="math inline"><mjx-container class="MathJax" jax="SVG">
     <p>如果您在 Gravatar 注册过邮箱，将显示您的 Gravatar 头像；否则将随机显示一个默认头像。</p>
     <p>您可以在 <a href="https://gravatar.com" target="_blank">Gravatar</a> 注册并设置自己的头像。</p>
   </div>
- 
+
             </div>
         </div>
     </article>
