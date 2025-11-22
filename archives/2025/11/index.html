@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1900</title>
+    <link rel="stylesheet" href="/css/main.css">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="1900" type="application/atom+xml">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="welcome">你好 👋 我是1900</div>
+            <nav>
+                <a href="/">主页</a>
+                <a href="/archives">Blog</a>
+                <a href="/about">关于</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-container">
+    <div class="content-card">
+        <h1>文章</h1>
+        <div class="archive-list">
+            
+                <div class="archive-item">
+                    <span class="archive-date">2025-11-23</span>
+                    <a href="/2025/11/23/%E4%B8%8D%E5%AE%9A%E5%BC%8F4/">不定式#4</a>
+                </div>
+            
+                <div class="archive-item">
+                    <span class="archive-date">2025-05-14</span>
+                    <a href="/2025/05/14/%E4%B8%8D%E5%AE%9A%E5%BC%8F3/">不定式#3</a>
+                </div>
+            
+                <div class="archive-item">
+                    <span class="archive-date">2024-12-15</span>
+                    <a href="/2024/12/15/weekly-2/">不定式#2</a>
+                </div>
+            
+                <div class="archive-item">
+                    <span class="archive-date">2024-11-24</span>
+                    <a href="/2024/11/24/weekly-1-1/">不定式#1</a>
+                </div>
+            
+                <div class="archive-item">
+                    <span class="archive-date">2024-11-15</span>
+                    <a href="/2024/11/15/note1/">我的造船记</a>
+                </div>
+            
+        </div>
+    </div>
+</div> 
+    </main>
+
+    <footer>
+        <p>&copy; 2025 1900</p>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 为每个代码块添加复制按钮
+        document.querySelectorAll('figure.highlight').forEach(block => {
+            const button = document.createElement('button');
+            button.className = 'copy-btn';
+            button.textContent = '复制';
+            block.appendChild(button);
+
+            button.addEventListener('click', () => {
+                // 获取代码内容，保留换行符
+                const code = block.querySelector('code').innerText;
+                
+                // 复制到剪贴板
+                navigator.clipboard.writeText(code).then(() => {
+                    button.textContent = '已复制!';
+                    setTimeout(() => {
+                        button.textContent = '复制';
+                    }, 2000);
+                }).catch(err => {
+                    console.error('复制失败:', err);
+                    button.textContent = '复制失败';
+                    setTimeout(() => {
+                        button.textContent = '复制';
+                    }, 2000);
+                });
+            });
+        });
+    });
+    </script>
+    
+    <!-- 确保在布局文件中引入目录脚本 -->
+    <script src="/js/toc.js"></script>
+</body>
+</html>
