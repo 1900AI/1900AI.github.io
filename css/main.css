@@ -2054,7 +2054,6 @@ nav a[href*="atom.xml"]:hover {
 .comment-date {
     color: #999;
 }
-
 /* --- 全局变量与重置 --- */
 :root {
     --primary-color: #2c3e50;    /* 深蓝灰，学术感强 */
@@ -2100,12 +2099,22 @@ a:hover {
     background-color: var(--bg-card);
     border-radius: var(--radius);
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    overflow: hidden; /* 确保圆角生效 */
+    overflow: visible; /* 修改：为了让 sticky 生效，建议由 hidden 改为 visible，或者确保父级没有 overflow: hidden/auto 导致失效 */
     min-height: 80vh;
+    align-items: flex-start; /* 关键：防止子元素默认拉伸高度 */
 }
 
-/* --- 左侧侧边栏 --- */
+/* --- 左侧侧边栏 (已修改：添加固定功能) --- */
 .left-sidebar {
+    /* --- 核心修改开始：侧边栏固定 --- */
+    position: -webkit-sticky; /* Safari 兼容 */
+    position: sticky;         /* 粘性定位 */
+    top: 40px;                /* 距离窗口顶部 40px 时固定 */
+    height: fit-content;      /* 关键：高度随内容自适应，不撑满父容器 */
+    align-self: flex-start;   /* 关键：防止 Flex 布局拉伸 */
+    z-index: 10;              /* 确保在层级上方 */
+    /* --- 核心修改结束 --- */
+
     flex: 0 0 280px;
     background-color: #fdfdfd; /* 极淡的侧边栏背景 */
     padding: 50px 30px;
@@ -2190,6 +2199,7 @@ a:hover {
 .right-content {
     flex-grow: 1;
     padding: 50px 60px;
+    min-width: 0; /* 防止内容过宽撑破 Flex 布局 */
 }
 
 /* 简介部分 */
@@ -2387,12 +2397,19 @@ a:hover {
         flex-direction: column;
         margin: 20px;
         min-height: auto;
+        /* 移动端无需 flex-start 限制，因为是垂直排列 */
+        align-items: stretch;
     }
 
     .left-sidebar {
         border-right: none;
         border-bottom: 1px solid var(--border-color);
         padding: 40px 20px;
+        
+        /* --- 核心修改：手机端取消固定 --- */
+        position: static;
+        height: auto;
+        /* -------------------------- */
     }
     
     .contact-list {
